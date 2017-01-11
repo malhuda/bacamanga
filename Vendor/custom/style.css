@@ -1,0 +1,74 @@
+body {
+	padding-top: 71px;
+}
+
+.kamuflase {
+	opacity: 0;
+}
+
+.bookmarked {
+	background-color: #d9edf7;
+	color: #31708f !important;
+}
+
+.bookmarked:after {
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\f02e";
+	width: 1.28571429em;
+	text-align: center;
+	position: absolute;
+	right: 10px;
+	top: 13px;
+}
+
+.content {
+	min-height: calc(100vh - 131px);
+}
+
+select {
+	cursor: pointer;
+}
+
+/* Navbar */
+.navbar {
+	-webkit-transition: all 1.5s ease-in-out;
+	-moz-transition: all 1.5s ease-in-out;
+	-o-transition: all 1.5s ease-in-out;
+	transition: all 1.5s ease-in-out;
+}
+
+.navbar:hover {
+	opacity: 1;
+}
+
+/* Manga */
+.read-manga img {
+	max-width: 100%;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+	background-color: #333;
+	color: #AEAEAE;
+	padding: 20px;
+}
+
+footer a,
+footer a:link,
+footer a:active,
+footer a:visited,
+footer a:hover {
+	color: inherit;
+}
+
+footer .right {
+	text-align: right;
+}

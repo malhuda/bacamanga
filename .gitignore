@@ -1,0 +1,11 @@
+App/cache/*
+!App/cache/index.html
+!App/cache/.htaccess
+
+App/logs/*
+!App/logs/index.html
+!App/logs/.htaccess
+
+# Config
+App/config/config.php
+App/config/database.php
