@@ -54,6 +54,27 @@
 			}
 			lastScrollTop = st;
 		});
+		<?php if ($config->auto_bookmark) : ?>
+		$(window).on('load', function() {
+			setTimeout(function(){
+				$.ajax(
+				{
+					type: "GET",
+					url: $('#bookmark').data('href'),
+					datatype: 'json',
+					success: function(json){
+						var data = JSON.parse(json);
+						$.notify(
+							{title: "<strong>Info:</strong> ",icon:"fa fa-bullhorn fa-fw",message:data.pesan},
+							{
+								placement: {from:"bottom",align:"right"},
+								animate: {enter:'animated fadeInDown',exit:'animated fadeOutUp'}
+							});
+					}
+				});
+			}, 1000);
+		});
+		<?php else : ?>
 		$('#bookmark').on('click', function() {
 			swal({
 				title: 'Bookmark!',
@@ -77,5 +98,6 @@
 				});
 			});
 		});
+		<?php endif; ?>
 	});
 </script>

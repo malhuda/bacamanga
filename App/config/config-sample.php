@@ -11,7 +11,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | tanpa tanda "\" atau "/" di akhir lokasi
 |
 */
-$config['manga_path'] = "F:\Manga";
+$config['manga_path'] = "";
+
+/*
+|--------------------------------------------------------------------------
+| Auto bookmark
+|--------------------------------------------------------------------------
+|
+| Default : FALSE
+|
+| Jika value TRUE maka akan bookmark chapter secara otomatis
+| Peringatan:
+| jika kamu sudah ada bookmark pada manga yang kamu baca
+| dan kamu baca pada chapter yang lebih lama atau baru
+| maka bookmark akan terganti secara otomatis ke chapter
+| yang sedang dibaca, jadi hati-hati jika kamu set ke TRUE
+|
+*/
+$config['auto_bookmark'] = FALSE;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +52,7 @@ $config['manga_path'] = "F:\Manga";
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://bacamanga.dev/';
+$config['base_url'] = 'http://localhost/';
 
 /*
 |--------------------------------------------------------------------------

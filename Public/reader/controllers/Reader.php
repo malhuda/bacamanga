@@ -11,10 +11,10 @@ class Reader extends MX_Controller {
 
 	public function index()
 	{
-		$data = array(
+		$data = [
 			'list_bookmark'	=> $this->core->list_bookmark(),
 			'list_manga'	=> $this->core->list_manga()
-			);
+			];
 		$this->load->view('home', $data);
 	}
 
@@ -22,12 +22,12 @@ class Reader extends MX_Controller {
 	{
 		$info = $this->core->info_manga($manga);
 		$this->core->scan_chapter($info->path);
-		$data = array(
+		$data = [
 			'title'			=> $info->name,
 			'list_manga'	=> $this->core->list_manga(),
 			'list_chapter'	=> $this->core->list_chapter(),
 			'bookmarked'	=> $this->core->bookmarked($manga)
-			);
+			];
 		$this->load->view('layout/header', $data);
 		$this->load->view('manga');
 		$this->load->view('layout/footer');
@@ -36,14 +36,14 @@ class Reader extends MX_Controller {
 	public function read($manga, $chapter)
 	{
 		$info = $this->core->info_chapter($chapter);
-		$data = array(
+		$data = [
 			'title'			=> "{$info->manga} {$info->chapter}",
 			'list_manga'	=> $this->core->list_manga(),
 			'list_chapter'	=> $this->core->list_chapter(),
 			'images'		=> $this->core->read_chapter($chapter),
 			'page'			=> $this->core->index_chapter($chapter)
-			);
-		$this->load->view('layout/header', $data);
+			];
+		$this->load->view('layout/header', $this->add_data($data));
 		$this->load->view('read');
 		$this->load->view('layout/footer');
 	}
@@ -65,26 +65,34 @@ class Reader extends MX_Controller {
 	{
 		$manga = $this->core->info_manga($manga);
 		$chapter = $this->core->info_chapter($chapter);
-		$data = array(
+		$data = [
 			'manga'		=> $manga->name,
 			'chapter'	=> $chapter->chapter,
 			'path'		=> $manga->url,
 			'url'		=> $chapter->url
-			);
+			];
 		$insert = $this->core->add_bookmark($data);
 		if ($insert) :
-			$json = array(
+			$json = [
 				'status'	=> 'success',
 				'title'		=> 'Good job!',
 				'pesan'		=> 'Chapter berhasil dibookmark'
-				);
+				];
 		else :
-			$json = array(
+			$json = [
 				'status'	=> 'warning',
 				'title'		=> 'Oops!',
 				'pesan'		=> 'Chapter gagal dibookmark'
-				);
+				];
 		endif;
 		echo json_encode($json);
+	}
+
+	private function add_data($data = NULL)
+	{
+		global $CFG;
+		$default = ['config' => (object) $CFG->config];
+		if (is_array($data)) return array_merge($default, $data);
+		return $default;
 	}
 }

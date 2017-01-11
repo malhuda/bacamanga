@@ -32,13 +32,15 @@ jQuery(function($) {
 			});
 	});
 	$(window).on('load', function() {
-		$.notify(
-			{title: "<strong>Info:</strong> ",icon:"fa fa-bullhorn fa-fw",message:"Page loaded"},
-			{
-				delay: 1000,
-				placement: {from:"bottom",align:"right"},
-				animate: {enter:'animated fadeInDown',exit:'animated fadeOutUp'}
-			});
+		setTimeout(function(){
+			$.notify(
+				{title: "<strong>Info:</strong> ",icon:"fa fa-bullhorn fa-fw",message:"Page loaded"},
+				{
+					delay: 1000,
+					placement: {from:"bottom",align:"right"},
+					animate: {enter:'animated fadeInDown',exit:'animated fadeOutUp'}
+				});
+		}, 500);
 	});
 	$(function () {
 		$('[data-toggle="tooltip"]').tooltip()
