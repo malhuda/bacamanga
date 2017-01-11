@@ -10,8 +10,9 @@ class Core {
 	
 	public function __construct()
 	{
+		global $CFG;
 		$this->CI =& get_instance();
-		$this->_path = "F:\Manga";
+		$this->_path = $CFG->config['manga_path'];
 		$this->_images = "Pictures";
 	}
 

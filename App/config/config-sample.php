@@ -1,7 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$config['modules_locations'] = array(APPPATH.'../Public/' => '../../Public/');
+/*
+|--------------------------------------------------------------------------
+| Manga Path
+|--------------------------------------------------------------------------
+|
+| lokasi folder manga
+| contoh: D:\manga
+| tanpa tanda "\" atau "/" di akhir lokasi
+|
+*/
+$config['manga_path'] = "F:\Manga";
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +35,7 @@ $config['modules_locations'] = array(APPPATH.'../Public/' => '../../Public/');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/';
+$config['base_url'] = 'http://bacamanga.dev/';
 
 /*
 |--------------------------------------------------------------------------
@@ -513,3 +523,10 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+/*
+|--------------------------------------------------------------------------
+| Modules location
+|--------------------------------------------------------------------------
+*/
+$config['modules_locations'] = array(APPPATH.'../Public/' => '../../Public/');
