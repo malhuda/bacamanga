@@ -2,7 +2,7 @@
 Sebuah sistem berbasis website yang digunakan untuk membaca manga secara offline
 
 # Version
-> 1.2.0
+> 1.2.1
 
 # Support file
 - zip

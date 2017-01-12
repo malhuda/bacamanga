@@ -7,6 +7,9 @@ jQuery(function($) {
 			$('#search-body').html('<i class="fa fa-spinner fa-spin"></i> Loading, please wait...');
 			var check = $('#search-panel').hasClass('hide');
 			if (check) $('#search-panel').removeClass('hide');
+			$('html, body').animate({
+				scrollTop: $('#search-panel').offset().top - 71
+			}, 2000);
 			clearTimeout(delay);
 			delay = setTimeout(function() {
 				$.ajax({
