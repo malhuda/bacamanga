@@ -99,6 +99,12 @@ class Core {
 		$check = $this->CI->db->where('path', $manga)->get('bookmark')->result();
 		return $check ? $check[0] : FALSE;
 	}
+
+	public function search($keywords)
+	{
+		$this->CI->db->like('name', $keywords);
+		return $this->CI->db->get('manga')->result();
+	}
 	// Database - End -
 
 	public function scan_dir()

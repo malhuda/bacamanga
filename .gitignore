@@ -9,3 +9,6 @@ App/logs/*
 # Config
 App/config/config.php
 App/config/database.php
+
+#  Pictures
+Pictures/*

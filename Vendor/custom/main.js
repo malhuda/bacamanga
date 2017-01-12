@@ -1,4 +1,28 @@
 jQuery(function($) {
+	var delay;
+	$('#search').on('keyup', function() {
+		var keywords = $(this).val();
+		var target = $(this).data('target');
+		if (keywords) {
+			$('#search-body').html('<i class="fa fa-spinner fa-spin"></i> Loading, please wait...');
+			var check = $('#search-panel').hasClass('hide');
+			if (check) $('#search-panel').removeClass('hide');
+			clearTimeout(delay);
+			delay = setTimeout(function() {
+				$.ajax({
+					url: target,
+					method: 'POST',
+					dataType: 'html',
+					data: {cari: keywords},
+					success: function(result) {
+						$('#search-body').html(result);
+					}
+				});
+			}, 1500);
+		} else {
+			$('#search-panel').addClass('hide');
+		}
+	});
 	$('#list_manga').change(function() {
 		$.notify(
 			{title: "<strong>Info:</strong> ",icon:"fa fa-bullhorn fa-fw",message:"Loading, please wait..."},

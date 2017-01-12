@@ -34,6 +34,10 @@ select {
 	cursor: pointer;
 }
 
+.list-group {
+	margin-bottom: 0;
+}
+
 /* Navbar */
 .navbar {
 	-webkit-transition: all 1.5s ease-in-out;

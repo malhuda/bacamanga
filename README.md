@@ -2,7 +2,7 @@
 Sebuah sistem berbasis website yang digunakan untuk membaca manga secara offline
 
 # Version
-> 1.1.1
+> 1.2.0
 
 # Support file
 - zip
@@ -17,6 +17,7 @@ Sebuah sistem berbasis website yang digunakan untuk membaca manga secara offline
 
 # Feature
 - $config\['auto_bookmark'\]  \(default: FALSE, set ke TRUE jika ingin bookmark otomatis\)
+- Search manga
 
 # Developer
 - Muhamad Aris (Contact : [Facebook](https://www.facebook.com/zyonesth))

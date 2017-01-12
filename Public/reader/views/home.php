@@ -41,6 +41,14 @@
 			
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
+						<form class="navbar-form navbar-left" role="search" onsubmit="return false">
+							<div class="form-group">
+								<div class="input-group">
+									<input id="search" type="text" class="form-control" placeholder="Search Manga" data-target="<?= base_url('search') ?>">
+									<div class="input-group-addon"><i class="fa fa-search fa-fw"></i></div>
+								</div>
+							</div>
+						</form>
 						<ul class="nav navbar-nav navbar-right">
 							<li data-toggle="tooltip" data-placement="left" title="Update list manga"><a href="<?= base_url('update') ?>"><i class="fa fa-refresh fa-fw"></i> Update</a></li>
 						</ul>
@@ -50,6 +58,12 @@
 		</header>
 		<section id="body" class="content">
 			<div class="container">
+				<div id="search-panel" class="panel panel-warning hide">
+					<div class="panel-heading">
+						<h3 class="panel-title"><i class="fa fa-search fa-fw"></i> Search</h3>
+					</div>
+					<div id="search-body" class="panel-body"></div>
+				</div>
 				<div class="panel panel-info">
 					<div class="panel-heading">
 						<h3 class="panel-title"><i class="fa fa-bookmark-o fa-fw"></i> Bookmark</h3>

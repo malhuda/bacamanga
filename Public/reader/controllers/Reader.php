@@ -61,6 +61,21 @@ class Reader extends MX_Controller {
 		redirect(base_url());
 	}
 
+	public function search()
+	{
+		$keywords = $this->input->post('cari');
+		$list = $this->core->search($keywords);
+		if ($list) :
+			echo "<div class=\"list-group\">\n";
+			foreach ($list as $item) :
+				echo "<a href=\"".base_url("manga/{$item->url}")."\" class=\"list-group-item\" title=\"".$item->name."\"><i class=\"fa fa-angle-double-right fa-fw\"></i>".$item->name."</a>";
+			endforeach;
+			echo "</div>";
+		else :
+			echo "No result found!";
+		endif;
+	}
+
 	public function add_bookmark($manga, $chapter)
 	{
 		$manga = $this->core->info_manga($manga);
