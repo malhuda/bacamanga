@@ -5,8 +5,10 @@ jQuery(function($) {
 		var target = $(this).data('target');
 		var spanel = $('#search-panel');
 		var sbody = $('#search-body');
+		var stitle = $('#search-title');
 		if (keywords) {
 			$('body').addClass('hidescroll');
+			stitle.html('Result for <strong>'+keywords+'</strong>');
 			if (spanel.hasClass('spin') == false) sbody.html('<i class="fa fa-spinner fa-spin"></i> Loading, please wait...');
 			if (spanel.hasClass('hide')) spanel.removeClass('hide');
 			spanel.addClass('spin');

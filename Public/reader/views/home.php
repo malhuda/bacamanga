@@ -63,7 +63,7 @@
 				<div class="container">
 					<div class="panel panel-warning">
 						<div class="panel-heading">
-							<h3 class="panel-title"><i class="fa fa-search fa-fw"></i> Search</h3>
+							<h3 class="panel-title"><i class="fa fa-search fa-fw"></i> <span id="search-title"></span></h3>
 						</div>
 						<div id="search-body" class="panel-body"></div>
 					</div>
