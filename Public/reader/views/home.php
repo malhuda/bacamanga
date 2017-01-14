@@ -50,21 +50,27 @@
 							</div>
 						</form>
 						<ul class="nav navbar-nav navbar-right">
-							<li data-toggle="tooltip" data-placement="left" title="Update list manga"><a href="<?= base_url('update') ?>"><i class="fa fa-refresh fa-fw"></i> Update</a></li>
+							<li data-toggle="tooltip" data-placement="bottom" title="list manga"><a href="#list_manga"><i class="fa fa-list fa-fw"></i> List Manga</a></li>
+							<li data-toggle="tooltip" data-placement="bottom" title="list Bookmark"><a href="#list_bookmark"><i class="fa fa-bookmark-o fa-fw"></i> List Bookmark</a></li>
+							<li data-toggle="tooltip" data-placement="bottom" title="Update list manga"><a href="<?= base_url('update') ?>"><i class="fa fa-refresh fa-fw"></i> Update</a></li>
 						</ul>
 					</div><!-- /.navbar-collapse -->
 				</div>
 			</nav>
 		</header>
 		<section id="body" class="content">
-			<div class="container">
-				<div id="search-panel" class="panel panel-warning hide">
-					<div class="panel-heading">
-						<h3 class="panel-title"><i class="fa fa-search fa-fw"></i> Search</h3>
+			<div id="search-panel" class="hide">
+				<div class="container">
+					<div class="panel panel-warning">
+						<div class="panel-heading">
+							<h3 class="panel-title"><i class="fa fa-search fa-fw"></i> Search</h3>
+						</div>
+						<div id="search-body" class="panel-body"></div>
 					</div>
-					<div id="search-body" class="panel-body"></div>
 				</div>
-				<div class="panel panel-info">
+			</div>
+			<div class="container">
+				<div id="list_bookmark" class="panel panel-info">
 					<div class="panel-heading">
 						<h3 class="panel-title"><i class="fa fa-bookmark-o fa-fw"></i> Bookmark</h3>
 					</div>
@@ -82,7 +88,7 @@
 						?>
 					</div>
 				</div>
-				<div class="panel panel-success">
+				<div id="list_manga" class="panel panel-success">
 					<div class="panel-heading">
 						<h3 class="panel-title"><i class="fa fa-list fa-fw"></i> List Manga</h3>
 					</div>
@@ -103,7 +109,7 @@
 						&copy; <?= date('Y') ?> <a href="<?= base_url() ?>">Baca<strong>manga</strong></a> <span class="">- All Rights Reserved.</span>
 					</div>
 					<div class="right hidden-xs col-xs-12 col-md-6">
-						<a href="<?= base_url() ?>">Home</a>
+						Developed by <a href="https://www.facebook.com/zyonesth" target="_blank">Aris-kun</a>
 					</div>
 				</div>
 			</div>

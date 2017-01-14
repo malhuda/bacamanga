@@ -72,7 +72,7 @@ class Reader extends MX_Controller {
 			endforeach;
 			echo "</div>";
 		else :
-			echo "No result found!";
+			echo "Sorry, we can't found manga with name <strong>{$keywords}</strong>";
 		endif;
 	}
 
