@@ -45,7 +45,7 @@
 							<div class="form-group">
 								<div class="input-group">
 									<input id="search" type="text" class="form-control" placeholder="Search Manga" data-target="<?= base_url('search') ?>">
-									<div class="input-group-addon"><i class="fa fa-search fa-fw"></i></div>
+									<div id="search-icon" class="input-group-addon"><i class="fa fa-search fa-fw"></i></div>
 								</div>
 							</div>
 						</form>

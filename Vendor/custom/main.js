@@ -6,8 +6,11 @@ jQuery(function($) {
 		var spanel = $('#search-panel');
 		var sbody = $('#search-body');
 		var stitle = $('#search-title');
+		var sicon = $('#search-icon');
 		if (keywords) {
 			$('body').addClass('hidescroll');
+			sicon.addClass('search-active');
+			sicon.find('i').addClass('search-close');
 			stitle.html('Result for <strong>'+keywords+'</strong>');
 			if (spanel.hasClass('spin') == false) sbody.html('<i class="fa fa-spinner fa-spin"></i> Loading, please wait...');
 			if (spanel.hasClass('hide')) spanel.removeClass('hide');
@@ -26,10 +29,19 @@ jQuery(function($) {
 				});
 			}, 1500);
 		} else {
+			sicon.removeClass('search-active');
+			sicon.find('i').removeClass('search-close');
 			spanel.addClass('hide');
 			$('body').removeClass('hidescroll');
 		}
 	});
+	$('#search-icon').on('click', function() {
+		$('#search').val('');
+		$('#search-panel').addClass('hide');
+		$('#search-icon').removeClass('search-active');
+		$('#search-icon').find('i').removeClass('search-close');
+		$('body').removeClass('hidescroll');
+	})
 	$('#list_manga').change(function() {
 		$.notify(
 			{title: "<strong>Info:</strong> ",icon:"fa fa-bullhorn fa-fw",message:"Loading, please wait..."},
@@ -54,7 +66,7 @@ jQuery(function($) {
 			window.location = site + $(this).val();
 		}
 	});
-	$('a:not([href*="#"])').not('#bookmark').on('click', function() {
+	$('a').not('[href*="#"], .not-notify').on('click', function() {
 		$.notify(
 			{title: "<strong>Info:</strong> ",icon:"fa fa-bullhorn fa-fw",message:"Loading, please wait..."},
 			{

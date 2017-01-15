@@ -111,3 +111,15 @@ footer .right {
 	overflow: scroll;
 	overflow-x: visible;
 }
+
+.search-active {
+	cursor: pointer;
+	background: #d9534f;
+	color: #FFF;
+	border-color: #d9534f;
+}
+
+.search-close:before {
+	content: "\f00d" !important;
+}
+
