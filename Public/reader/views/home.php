@@ -44,7 +44,7 @@
 						<form class="navbar-form navbar-left" role="search" onsubmit="return false">
 							<div class="form-group">
 								<div class="input-group">
-									<input id="search" type="text" class="form-control" placeholder="Search Manga" data-target="<?= base_url('search') ?>">
+									<input id="search" type="text" class="form-control" placeholder="Search Manga" data-target="<?= base_url('search') ?>" autocomplete="off">
 									<div id="search-icon" class="input-group-addon"><i class="fa fa-search fa-fw"></i></div>
 								</div>
 							</div>
