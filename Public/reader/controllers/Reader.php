@@ -58,6 +58,7 @@ class Reader extends MX_Controller {
 	public function update()
 	{
 		$this->core->scan_dir();
+		$this->core->initialize_bookmark();
 		redirect(base_url());
 	}
 

@@ -79,7 +79,17 @@ class Core {
 
 	public function list_bookmark()
 	{
-		return $this->CI->db->order_by('manga', 'ASC')->get('bookmark')->result();
+		$this->CI->db->select('b.*');
+		$this->CI->db->join('manga as m', 'm.url = b.path');
+		$this->CI->db->order_by('b.manga', 'ASC');
+		return $this->CI->db->get('bookmark as b')->result();
+	}
+
+	public function initialize_bookmark()
+	{
+		$query = "DELETE FROM bookmark WHERE path NOT IN (SELECT url FROM manga)";
+		return $this->CI->db->query($query);
+		
 	}
 
 	public function add_bookmark($data)

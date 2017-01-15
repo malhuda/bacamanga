@@ -62,7 +62,6 @@
 						<ul class="nav navbar-nav navbar-right">
 							<?php if ($this->uri->segment(3)) : ?>
 								<li <?= $config->auto_bookmark ? "class=\"hide\"" : NULL ?> data-toggle="tooltip" data-placement="left" title="Bookmark this chapter"><a id="bookmark" data-href="<?= base_url("add-bookmark/{$this->uri->segment(2)}/{$this->uri->segment(3)}") ?>" class="not-notify" style="cursor:pointer"><i class="fa fa-bookmark-o"></i> Bookmark</a></li>
-								<li data-toggle="tooltip" data-placement="left" title="Full Screen"><a class="not-notify" style="cursor: pointer;"><i class="fa fa-arrows-alt fa-fw" onclick="toggleFullScreen()"></i></a></li>
 							<?php endif; ?>
 						</ul>
 					</div><!-- /.navbar-collapse -->
