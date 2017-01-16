@@ -16,7 +16,7 @@ Sistem berbasis website yang digunakan untuk membaca manga secara offline
 - Buka file config.php
 - Ubah value dari variabel $config['manga_path'] dengan lokasi folder manga kamu
 - Ubah value dari variabel $config['base_url'] dengan url bacamanga yang kamu buat
-- Jika ingin bookmark chapter secara otomatis ubah value dari $config['auto_bookmark'] menjadi TRUE
+- Jika ingin bookmark chapter secara otomatis ubah value dari variabel $config['auto_bookmark'] menjadi TRUE
 
 # Feature
 - Single Page
