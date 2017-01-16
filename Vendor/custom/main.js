@@ -41,20 +41,49 @@ jQuery(function($) {
 		$('#search-icon').removeClass('search-active');
 		$('#search-icon').find('i').removeClass('search-close');
 		$('body').removeClass('hidescroll');
-	})
-	$('#list_manga').change(function() {
-		$.notify(
-			{title: "<strong>Info:</strong> ",icon:"fa fa-bullhorn fa-fw",message:"Loading, please wait..."},
-			{
-				placement: {from:"bottom",align:"right"},
-				animate: {enter:'animated fadeInDown',exit:'animated fadeOutUp'}
-			});
-		var site = $(this).data('url');
-		if ($(this).val()) {
-			window.location = site + $(this).val();
+	});
+	$('#filter_bookmark').on('change', function() {
+		var huruf = $(this).val();
+		var target = $(this).parents('.filter').data('component');
+		var execute = $(this).parents('.filter').data('target');
+		if (huruf != '') {
+			$(target).html('<a class="list-group-item"><i class="fa fa-spinner fa-spin"></i> Loading, please wait...</a>');
+			clearTimeout(delay);
+			delay = setTimeout(function() {
+				$.ajax({
+					url: execute,
+					method: 'POST',
+					dataType: 'html',
+					data: {target: 'bookmark', huruf: huruf},
+					success: function(result) {
+						$(target).html(result);
+					}
+				});
+			}, 500);
 		}
 	});
-	$('#list_chapter').change(function() {
+	$('#filter_huruf, #filter_status').on('change', function() {
+		var huruf = $('#filter_huruf').val();
+		var status = $('#filter_status').val();
+		var target = $(this).parents('.filter').data('component');
+		var execute = $(this).parents('.filter').data('target');
+		if (huruf != '' && status != '') {
+			$(target).html('<a class="list-group-item"><i class="fa fa-spinner fa-spin"></i> Loading, please wait...</a>');
+			clearTimeout(delay);
+			delay = setTimeout(function() {
+				$.ajax({
+					url: execute,
+					method: 'POST',
+					dataType: 'html',
+					data: {target: 'manga', huruf: huruf, status: status},
+					success: function(result) {
+						$(target).html(result);
+					}
+				});
+			}, 500);
+		}
+	});
+	$('select.open-notify').on('change', function() {
 		$.notify(
 			{title: "<strong>Info:</strong> ",icon:"fa fa-bullhorn fa-fw",message:"Loading, please wait..."},
 			{

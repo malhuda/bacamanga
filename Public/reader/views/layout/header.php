@@ -43,7 +43,7 @@
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
 						<form class="navbar-form navbar-left" role="search" onsubmit="return false">
 							<div class="form-group">
-								<select id="list_manga" class="form-control" data-url="<?= base_url('manga/') ?>" data-toggle="tooltip" data-placement="left" title="Manga">
+								<select id="list_manga" class="open-notify form-control" data-url="<?= base_url('manga/') ?>" data-toggle="tooltip" data-placement="left" title="Manga">
 									<?php foreach ($list_manga as $item) : ?>
 										<option value="<?= $item->url ?>" <?= ($item->url == $this->uri->segment(2)) ? "selected" : NULL ?>><?= $item->name ?></option>
 									<?php endforeach; ?>
@@ -51,7 +51,7 @@
 							</div>
 							<?php if ($this->uri->segment(3)) : ?>
 								<div class="form-group">
-								<select id="list_chapter" class="form-control" data-url="<?= base_url("manga/{$this->uri->segment(2)}/") ?>" data-toggle="tooltip" data-placement="right" title="Chapter">
+								<select id="list_chapter" class="open-notify form-control" data-url="<?= base_url("manga/{$this->uri->segment(2)}/") ?>" data-toggle="tooltip" data-placement="right" title="Chapter">
 								<?php foreach ($list_chapter as $item) : ?>
 											<option value="<?= $item->url ?>" <?= ($item->url == $this->uri->segment(3)) ? "selected" : NULL ?>><?= $item->chapter ?></option>
 										<?php endforeach; ?>

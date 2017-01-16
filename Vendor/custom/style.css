@@ -55,20 +55,20 @@ select {
 	margin-bottom: 0;
 }
 
-.list-group a,
-.list-group .fa {
+.list-group a.animasi,
+.list-group a.animasi .fa {
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
 
-.list-group a:hover {
+.list-group a.animasi:hover {
 	color: #337ab7;
 	font-weight: bold;
 }
 
-.list-group a:hover .fa {
+.list-group a.animasi:hover .fa {
 	padding-left: 5px;
 }
 
@@ -84,8 +84,6 @@ select {
 }
 
 .info-manga {
-	float: right;
-	margin-top: -16px;
 	font-size: smaller;
 }
 
@@ -97,6 +95,16 @@ select {
 .readed:before {
 	content: "\f06e";
 	color: #5cb85c;
+}
+
+.panel-heading {
+	position: relative;
+}
+
+.filter {
+	position: absolute;
+	top: 3px;
+	right: 15px;
 }
 
 /* Manga */

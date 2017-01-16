@@ -22,6 +22,7 @@ Sistem berbasis website yang digunakan untuk membaca manga secara offline
 - Single Page
 - Bookmark Otomatis
 - Pencarian Manga
+- Filter bookmark dan manga
 
 # Dev. Note
 - Jika menemukan bug atau ingin request fitur baru silahkan hubungi saya.

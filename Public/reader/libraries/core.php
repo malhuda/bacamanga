@@ -131,6 +131,11 @@ class Core {
 		$this->CI->db->like('name', $keywords);
 		return $this->CI->db->get('manga')->result();
 	}
+
+	public function filter($query)
+	{
+		return $this->CI->db->query($query)->result();
+	}
 	// Database - End -
 
 	public function scan_dir()

@@ -73,13 +73,25 @@
 				<div id="list_bookmark" class="panel panel-info">
 					<div class="panel-heading">
 						<h3 class="panel-title"><i class="fa fa-bookmark-o fa-fw"></i> Bookmark</h3>
+						<div class="filter form-inline" data-target="<?= base_url('filter') ?>" data-component="#semua_bookmark">
+							<div class="form-group">
+								<select id="filter_bookmark" class="filter-active form-control input-sm">
+									<option value="all" selected>ALL</option>
+									<?php
+										foreach (range('A', 'Z') as $item) :
+											echo "<option value=\"".strtolower($item)."\">{$item}</option>";
+										endforeach;
+									?>
+								</select>
+							</div>
+						</div>
 					</div>
 					<div class="panel-body">
 						<?php
 							if ($list_bookmark) :
-								echo "<div class=\"list-group\">\n";
+								echo "<div id=\"semua_bookmark\" class=\"list-group\">\n";
 								foreach ($list_bookmark as $item) :
-									echo "<a href=\"".base_url("bookmark/{$item->path}/{$item->url}"). "\" class=\"list-group-item\" title=\"{$item->manga} {$item->chapter}\"><i class=\"fa fa-angle-double-right fa-fw\"></i>{$item->manga} {$item->chapter}</a>\n";
+									echo "<a href=\"".base_url("bookmark/{$item->path}/{$item->url}"). "\" class=\"list-group-item animasi\" title=\"{$item->manga} {$item->chapter}\"><i class=\"fa fa-angle-double-right fa-fw\"></i>{$item->manga} {$item->chapter}</a>\n";
 								endforeach;
 								echo "</div>\n";
 							else :
@@ -90,13 +102,32 @@
 				</div>
 				<div id="list_manga" class="panel panel-success">
 					<div class="panel-heading">
-						<h3 class="panel-title"><i class="fa fa-list fa-fw"></i> List Manga</h3>
-						<span class="info-manga"><?= "[ <strong>Total: <span class=\"text-primary\">{$data_manga[0]->manga}</span></strong> ] [ <strong>Readed: <span class=\"text-primary\">{$data_manga[0]->readed}</span></strong> ] [ <strong>Unread: <span class=\"text-primary\">{$data_manga[0]->unread}</span></strong> ]" ?></span>
+						<h3 class="panel-title"><i class="fa fa-list fa-fw"></i> List Manga</h3>						
+						<div class="filter form-inline" data-target="<?= base_url('filter') ?>" data-component="#semua_manga">
+							<span class="info-manga"><?= "[ <strong>Total: <span class=\"text-primary\">{$data_manga[0]->manga}</span></strong> ] [ <strong>Readed: <span class=\"text-primary\">{$data_manga[0]->readed}</span></strong> ] [ <strong>Unread: <span class=\"text-primary\">{$data_manga[0]->unread}</span></strong> ]" ?></span>
+							<div class="form-group">
+								<select id="filter_huruf" class="filter-active form-control input-sm">
+									<option value="all" selected>ALL</option>
+									<?php
+										foreach (range('A', 'Z') as $item) :
+											echo "<option value=\"".strtolower($item)."\">{$item}</option>";
+										endforeach;
+									?>
+								</select>
+							</div>
+							<div class="form-group">
+								<select id="filter_status" class="filter-active form-control input-sm">
+									<option value="all" selected>ALL</option>
+									<option value="readed">Readed</option>
+									<option value="unread">Unread</option>
+								</select>
+							</div>
+						</div>
 					</div>
 					<div class="panel-body">
-						<div class="list-group">
+						<div id="semua_manga" class="list-group">
 							<?php foreach ($list_manga as $manga) : ?>
-								<a href="<?= base_url("manga/{$manga->url}") ?>" class="list-group-item" title="<?= $manga->name ?>"><i class="fa fa-angle-double-right fa-fw"></i><?= $manga->name ?><i class="<?= $manga->status ?>"></i></a>
+								<a href="<?= base_url("manga/{$manga->url}") ?>" class="list-group-item animasi" title="<?= $manga->name ?>"><i class="fa fa-angle-double-right fa-fw"></i><?= $manga->name ?><i class="<?= $manga->status ?>"></i></a>
 							<?php endforeach; ?>
 						</div>
 					</div>

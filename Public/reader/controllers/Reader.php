@@ -78,6 +78,54 @@ class Reader extends MX_Controller {
 		endif;
 	}
 
+	public function filter()
+	{
+		$target = $this->input->post('target');
+		if ($target == 'manga') :
+			$input = (object) array(
+				'huruf'		=> $this->input->post('huruf'),
+				'status'	=> $this->input->post('status')
+				);
+			$status = "case when url not in (select path from bookmark) then 'unread' else 'readed' end as status";
+			if ($input->huruf == 'all' && $input->status == 'all') :
+				$query = "select *, {$status} from manga";
+			elseif ($input->huruf == 'all' && $input->status == 'readed') :
+				$query = "select *, {$status} from manga where url in (select path from bookmark)";
+			elseif ($input->huruf == 'all' && $input->status == 'unread') :
+				$query = "select *, {$status} from manga where url not in (select path from bookmark)";
+			elseif ($input->huruf != 'all' && $input->status == 'all') :
+				$query = "select *, {$status} from manga where name like '{$input->huruf}%'";
+			elseif ($input->huruf != 'all' && $input->status == 'readed') :
+				$query = "select *, {$status} from manga where url in (select path from bookmark) and name like '{$input->huruf}%'";
+			elseif ($input->huruf != 'all' && $input->status == 'unread') :
+				$query = "select *, {$status} from manga where url not in (select path from bookmark) and name like '{$input->huruf}%'";
+			endif;
+			$result = $this->core->filter($query);
+			if ($result) :
+				foreach ($result as $item) :
+					echo "<a href=\"".base_url("manga/{$item->url}")."\" class=\"list-group-item animasi\" title=\"{$item->name}\"><i class=\"fa fa-angle-double-right fa-fw\"></i>{$item->name}<i class=\"{$item->status}\"></i></a>";
+				endforeach;
+			else :
+				echo "<a class=\"list-group-item\">Tidak ada manga.</a>";
+			endif;
+		elseif ($target == 'bookmark') :
+			$input = (object) array('huruf' => $this->input->post('huruf'));
+			if ($input->huruf == 'all') :
+				$query = "select b.* from bookmark b join manga m on m.url = b.path order by b.manga ASC";
+			else :
+				$query = "select b.* from bookmark b join manga m on m.url = b.path where b.manga like '{$input->huruf}%' order by b.manga ASC";
+			endif;
+			$result = $this->core->filter($query);
+			if ($result) :
+				foreach ($result as $item) :
+					echo "<a href=\"".base_url("bookmark/{$item->path}/{$item->url}"). "\" class=\"list-group-item animasi\" title=\"{$item->manga} {$item->chapter}\"><i class=\"fa fa-angle-double-right fa-fw\"></i>{$item->manga} {$item->chapter}</a>\n";;
+				endforeach;
+			else :
+				echo "<a class=\"list-group-item\">Tidak ada manga.</a>";
+			endif;
+		endif;
+	}
+
 	public function add_bookmark($manga, $chapter)
 	{
 		$manga = $this->core->info_manga($manga);
