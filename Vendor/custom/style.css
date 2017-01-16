@@ -10,6 +10,19 @@ body {
 	opacity: 0;
 }
 
+/* Navbar */
+.navbar {
+	-webkit-transition: all 1.5s ease-in-out;
+	-moz-transition: all 1.5s ease-in-out;
+	-o-transition: all 1.5s ease-in-out;
+	transition: all 1.5s ease-in-out;
+}
+
+.navbar:hover {
+	opacity: 1;
+}
+
+/* Content */
 .bookmarked {
 	background-color: #d9edf7;
 	color: #31708f !important;
@@ -59,16 +72,31 @@ select {
 	padding-left: 5px;
 }
 
-/* Navbar */
-.navbar {
-	-webkit-transition: all 1.5s ease-in-out;
-	-moz-transition: all 1.5s ease-in-out;
-	-o-transition: all 1.5s ease-in-out;
-	transition: all 1.5s ease-in-out;
+.unread,
+.readed {
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	float: right;
 }
 
-.navbar:hover {
-	opacity: 1;
+.info-manga {
+	float: right;
+	margin-top: -16px;
+	font-size: smaller;
+}
+
+.unread:before {
+	content: "\f070";
+	color: #d9534f;
+}
+
+.readed:before {
+	content: "\f06e";
+	color: #5cb85c;
 }
 
 /* Manga */

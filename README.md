@@ -1,8 +1,8 @@
 # Bacamanga
-Sebuah sistem berbasis website yang digunakan untuk membaca manga secara offline
+Sistem berbasis website yang digunakan untuk membaca manga secara offline
 
 # Version
-> 1.2.1
+> 1.2.2
 
 # Support file
 - zip
@@ -11,13 +11,20 @@ Sebuah sistem berbasis website yang digunakan untuk membaca manga secara offline
 - Local Sever, seperti: XAMPP, WAMP, dll
 
 # Installation
-- Buka file config.php di folder App/config
+- Buka folder App/config
+- Copy file config-sample.php lalu ganti namanya menjadi config.php
+- Buka file config.php
 - Ubah value dari variabel $config['manga_path'] dengan lokasi folder manga kamu
 - Ubah value dari variabel $config['base_url'] dengan url bacamanga yang kamu buat
+- Jika ingin bookmark chapter secara otomatis ubah value dari $config['auto_bookmark'] menjadi TRUE
 
 # Feature
-- $config\['auto_bookmark'\]  \(default: FALSE, set ke TRUE jika ingin bookmark otomatis\)
-- Search manga
+- Single Page
+- Bookmark Otomatis
+- Pencarian Manga
+
+# Dev. Note
+- Jika menemukan bug atau ingin request fitur baru silahkan hubungi saya.
 
 # Developer
 - Muhamad Aris (Contact : [Facebook](https://www.facebook.com/zyonesth))

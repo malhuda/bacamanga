@@ -13,7 +13,8 @@ class Reader extends MX_Controller {
 	{
 		$data = [
 			'list_bookmark'	=> $this->core->list_bookmark(),
-			'list_manga'	=> $this->core->list_manga()
+			'list_manga'	=> $this->core->list_manga(),
+			'data_manga'	=> $this->core->data_manga()
 			];
 		$this->load->view('home', $data);
 	}
@@ -69,7 +70,7 @@ class Reader extends MX_Controller {
 		if ($list) :
 			echo "<div class=\"list-group\">\n";
 			foreach ($list as $item) :
-				echo "<a href=\"".base_url("manga/{$item->url}")."\" class=\"list-group-item\" title=\"".$item->name."\"><i class=\"fa fa-angle-double-right fa-fw\"></i>".$item->name."</a>";
+				echo "<a href=\"".base_url("manga/{$item->url}")."\" class=\"list-group-item\" title=\"{$item->name}\"><i class=\"fa fa-angle-double-right fa-fw\"></i>{$item->name}<i class=\"{$item->status}\"></i></a>";
 			endforeach;
 			echo "</div>";
 		else :

@@ -39,6 +39,8 @@ class Core {
 
 	public function list_manga()
 	{
+		$status = "case when url not in (select path from bookmark) then 'unread' else 'readed' end as status";
+		$this->CI->db->select("*, {$status}");
 		$this->CI->db->order_by('name', 'ASC');
 		return $this->CI->db->get('manga')->result();
 	}
@@ -85,6 +87,17 @@ class Core {
 		return $this->CI->db->get('bookmark as b')->result();
 	}
 
+	public function data_manga()
+	{
+		$select = (object) array(
+			'manga'		=> 'count(*) as manga',
+			'unread'	=> 'sum(case when url not in (select path from bookmark) then 1 else 0 end) as unread',
+			'readed'	=> 'sum(case when url in (select path from bookmark) then 1 else 0 end) as readed'
+			);
+		$this->CI->db->select("$select->manga, $select->unread, $select->readed");
+		return $this->CI->db->get('manga')->result();
+	}
+
 	public function initialize_bookmark()
 	{
 		$query = "DELETE FROM bookmark WHERE path NOT IN (SELECT url FROM manga)";
@@ -112,6 +125,9 @@ class Core {
 
 	public function search($keywords)
 	{
+		$status = "case when url not in (select path from bookmark) then 'unread' else 'readed' end as status";
+		$this->CI->db->select("*, {$status}");
+		$this->CI->db->order_by('name', 'ASC');
 		$this->CI->db->like('name', $keywords);
 		return $this->CI->db->get('manga')->result();
 	}

@@ -50,8 +50,8 @@
 							</div>
 						</form>
 						<ul class="nav navbar-nav navbar-right">
-							<li data-toggle="tooltip" data-placement="bottom" title="list manga"><a href="#list_manga"><i class="fa fa-list fa-fw"></i> List Manga</a></li>
 							<li data-toggle="tooltip" data-placement="bottom" title="list Bookmark"><a href="#list_bookmark"><i class="fa fa-bookmark-o fa-fw"></i> List Bookmark</a></li>
+							<li data-toggle="tooltip" data-placement="bottom" title="list manga"><a href="#list_manga"><i class="fa fa-list fa-fw"></i> List Manga</a></li>
 							<li data-toggle="tooltip" data-placement="bottom" title="Update list manga"><a href="<?= base_url('update') ?>"><i class="fa fa-refresh fa-fw"></i> Update</a></li>
 						</ul>
 					</div><!-- /.navbar-collapse -->
@@ -91,11 +91,12 @@
 				<div id="list_manga" class="panel panel-success">
 					<div class="panel-heading">
 						<h3 class="panel-title"><i class="fa fa-list fa-fw"></i> List Manga</h3>
+						<span class="info-manga"><?= "[ <strong>Total: <span class=\"text-primary\">{$data_manga[0]->manga}</span></strong> ] [ <strong>Readed: <span class=\"text-primary\">{$data_manga[0]->readed}</span></strong> ] [ <strong>Unread: <span class=\"text-primary\">{$data_manga[0]->unread}</span></strong> ]" ?></span>
 					</div>
 					<div class="panel-body">
 						<div class="list-group">
 							<?php foreach ($list_manga as $manga) : ?>
-								<a href="<?= base_url("manga/{$manga->url}") ?>" class="list-group-item" title="<?= $manga->name ?>"><i class="fa fa-angle-double-right fa-fw"></i><?= $manga->name ?></a>
+								<a href="<?= base_url("manga/{$manga->url}") ?>" class="list-group-item" title="<?= $manga->name ?>"><i class="fa fa-angle-double-right fa-fw"></i><?= $manga->name ?><i class="<?= $manga->status ?>"></i></a>
 							<?php endforeach; ?>
 						</div>
 					</div>
